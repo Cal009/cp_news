@@ -94,6 +94,13 @@ DATABASES = {
 # }
 
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.herokuapp.com",
+    "http://*localhost:8000",
+    "https://8000-cal009-djangoblog-movqrj7ck61.ws.codeinstitute-ide.net"
+]
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
