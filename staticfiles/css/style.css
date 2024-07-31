@@ -67,7 +67,7 @@ body {
 }
 
 .masthead-text {
-    background-color: #445261;
+    background-color: #e84610e6;
     color: white;
     position: relative;
 }
@@ -166,4 +166,8 @@ body {
 
 .social:hover {
     color: wheat;
+}
+
+#about-background {
+    background-color: #e846108c;
 }
