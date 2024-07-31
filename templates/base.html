@@ -1,5 +1,6 @@
 {% load static %}
 {% url 'home' as home_url %}
+{% url 'about' as about_url %}
 
 
 <!DOCTYPE html>
@@ -28,7 +29,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}"><span class="red-o">CP</span><span
-                class="thin">|news</span></a>
+                    class="thin">|news</span></a>
             <a class="navbar-brand" href="{% url 'home' %}"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +41,11 @@
                         <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
                             href="{% url 'home' %}">Home</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link
+                          {% if request.path == about_url %}active{%endif%}" aria-current="page"
+                            href="{% url 'about' %}">About</a>
+                    </li>
                 </ul>
                 <span class="navbar-text text-muted">
                     The people's news
