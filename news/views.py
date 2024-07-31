@@ -30,5 +30,5 @@ def post_detail(request, slug):
     return render(
         request,
         "news/post_detail.html",
-        {"post": post},
+        {"post": post,}
     )
