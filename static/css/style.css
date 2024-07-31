@@ -22,7 +22,7 @@ body {
 }
 
 .dark-bg {
-    background-color: #055160;
+    background-color: #e84610e6;
 }
 
 .main-bg {
@@ -43,7 +43,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #055160;
+    background-color: #e84610e6;
 }
 
 .scale {
@@ -93,7 +93,7 @@ body {
 
 .post-link {
     text-decoration: none;
-    color: #565e64;
+    color: #41464b;
 }
 
 .post-link:hover,
