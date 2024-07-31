@@ -22,7 +22,7 @@ body {
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: #055160;
 }
 
 .main-bg {
@@ -43,7 +43,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #188181;
+    background-color: #055160;
 }
 
 .scale {
@@ -84,7 +84,7 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
+    background: #614444;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
@@ -93,7 +93,7 @@ body {
 
 .post-link {
     text-decoration: none;
-    color: #445261;
+    color: #565e64;
 }
 
 .post-link:hover,
@@ -158,4 +158,12 @@ body {
 
 .approval {
     color: rgb(222, 146, 168);
+}
+
+.social {
+    color: white;
+}
+
+.social:hover {
+    color: wheat;
 }
