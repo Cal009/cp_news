@@ -22,6 +22,10 @@ class Post(models.Model):
         ordering = ["-created_on"]
     def __str__(self):
         return f"{self.title} | published by {self.author}"
+    def upvotes(self):
+        return self.votes.filter(vote_type=Vote.UPVOTE).count()
+    def downvotes(self):
+        return self.votes.filter(vote_type=Vote.DOWNVOTE).count()
 
 class Comment(models.Model):
     post = models.ForeignKey(
@@ -36,3 +40,19 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.author}"
+    
+class Vote(models.Model):
+    UPVOTE = 1
+    DOWNVOTE = -1
+    VOTE_TYPE_CHOICES = (
+        (UPVOTE, 'Upvote'),
+        (DOWNVOTE, 'Downvote'),
+    )
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, related_name='votes', on_delete=models.CASCADE)
+    vote_type = models.SmallIntegerField(choices=VOTE_TYPE_CHOICES)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'post')
