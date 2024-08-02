@@ -13,18 +13,6 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
-def upvote_post(request, slug):
-    post = get_object_or_404(Post, slug=slug)
-    vote, created = Vote.objects.get_or_create(user=request.user, post=post)
-    if not created and vote.vote_type == Vote.UPVOTE:
-        messages.add_message(request, messages.INFO, 'You have already upvoted this post.')
-    else:
-        vote.vote_type = Vote.UPVOTE
-        vote.save()
-        messages.add_message(request, messages.SUCCESS, 'Post upvoted successfully!')
-    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-
-
 def post_detail(request, slug):
     """
     Display an individual :model:`blog.Post`.
