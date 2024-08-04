@@ -5,6 +5,12 @@ from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm
 
+class LikeView(View):
+    def post(self, request, pk, *args, **kwargs):
+        post = get_object_or_404(Post, id=pk)
+        post.likes.add(request.user)
+        return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
+
 
 # Create your views here.
 class PostList(generic.ListView):
