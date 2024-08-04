@@ -62,6 +62,7 @@ def post_detail(request, slug):
             "comments": comments,
             "comment_count": comment_count,
             "comment_form": comment_form,
+            "total_likes": total_likes,
         }
     )
 
