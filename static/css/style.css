@@ -55,6 +55,7 @@ body {
     color: white;
     margin: 4px;
     text-transform: uppercase;
+    background-color: #E84610;
 }
 
 .masthead {
@@ -166,4 +167,12 @@ body {
 
 .social:hover {
     color: wheat;
+}
+
+#like-button {
+    background-color: #E84610;
+}
+
+#submitButton {
+    background-color: #E84610;
 }
