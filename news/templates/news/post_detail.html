@@ -13,8 +13,7 @@
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
-                <img class="card-img-top" src="{% static 'images/news_image.jpg' %}"
-                    alt="placeholder image">
+                <img class="card-img-top" src="{% static 'images/news_image.jpg' %}" alt="placeholder image">
                 {% else %}
                 <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
                 {% endif %}
@@ -35,6 +34,14 @@
             </div>
         </div>
     </div>
+    <hr>
+    <br /><br />
+    <form action="{% url 'like_post'  post.pk%}" method="POST">
+        {% csrf_token %}
+        <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary"
+            id="like-button">Like</button> -
+        {{ total_likes }} Likes
+    </form>
     <!-- Displaying count of comments -->
     <div class="row">
         <div class="col-12">
