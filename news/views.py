@@ -52,6 +52,8 @@ def post_detail(request, slug):
 
     comment_form = CommentForm()
 
+    total_likes = post.total_likes()
+
     return render(
         request,
         "news/post_detail.html",
@@ -62,7 +64,6 @@ def post_detail(request, slug):
             "comment_form": comment_form,
         }
     )
-
 
 def comment_edit(request, slug, comment_id):
     """
