@@ -8,9 +8,30 @@ from .forms import CommentForm
 class LikeView(View):
     def post(self, request, pk, *args, **kwargs):
         post = get_object_or_404(Post, id=pk)
-        post.likes.add(request.user)
-        return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
+        user = request.user
 
+        # Toggle like
+        if post.likes.filter(id=user.id).exists():
+            post.likes.remove(user)  # Remove the like
+        else:
+            post.dislikes.remove(user)  # Remove the dislike if it exists
+            post.likes.add(user)  # Add like
+
+        return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
+    
+class DisLikeView(View):
+    def post(self, request, pk, *args, **kwargs):
+        post = get_object_or_404(Post, id=pk)
+        user = request.user
+
+        # Toggle dislike
+        if post.dislikes.filter(id=user.id).exists():
+            post.dislikes.remove(user)  # Remove the dislike
+        else:
+            post.likes.remove(user)  # Remove the like if it exists
+            post.dislikes.add(user)  # Add dislike
+
+        return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
 
 # Create your views here.
 class PostList(generic.ListView):

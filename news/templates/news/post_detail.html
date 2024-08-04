@@ -35,17 +35,37 @@
         </div>
     </div>
     {% if user.is_authenticated %}
-    <hr>
-    <br /><br />
-    <form action="{% url 'like_post'  post.pk%}" method="POST">
-        {% csrf_token %}
-        <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary"
-            id="like-button">Like</button> -
-        {{ total_likes }} Likes
-    </form>
+    <div class="container">
+        <div class="row">
+            <div id="like-dislike" class="col-md-8">
+                <hr>
+                <br /><br />
+                <form action="{% url 'like_post' post.pk %}" method="POST" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary" id="like-button"
+                        {% if user in post.liked_by.all %}disabled{% endif %}>
+                        Like
+                    </button>
+                    -
+                    {{ post.likes.count }} Likes
+                </form>
+
+                <form action="{% url 'dislike_post' post.pk %}" method="POST" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary"
+                        id="dislike-button" {% if user in post.disliked_by.all %}disabled{% endif %}>
+                        Dislike
+                    </button>
+                    -
+                    {{ post.dislikes.count }} Dislikes
+                </form>
+            </div>
+        </div>
+    </div>
     {% else %}
-    <p>**In order to leave a like on this post you must login first**</p>
+    <p class="login-error">You must login in order to like or dislike this post</p>
     {% endif %}
+
     <!-- Displaying count of comments -->
     <div class="row">
         <div class="col-12">

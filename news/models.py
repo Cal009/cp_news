@@ -19,8 +19,11 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     likes = models.ManyToManyField(User, related_name="news_post")
+    dislikes = models.ManyToManyField(User, related_name="news_post_dislikes")
     def total_likes(self):
         return self.likes.count()
+    def total_dislikes(self):
+        return self.dislikes.count()
     class Meta:
         ordering = ["-created_on"]
     def __str__(self):
