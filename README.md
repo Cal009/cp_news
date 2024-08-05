@@ -38,3 +38,8 @@ For the safety of the users, when a comment is submitted it has to be reviewed b
 - Below this the like and dislike button are located. Both Like and Dislike buttons work in tandem, so users can not like and also dislike as the code checks for a user input already and if its there it wil remove it or replace it depending on what the user wants to do. Next to that is the counter which clearly indicates how many likes or dislikes the post has. All the likes and dislikes are independant to each post this was achieved using the primary key.
 - Next is the comment section. Same again the counter keeps track of how many comments a post has but will only count them once they have been approved. The field on the right allows for users to type their comment and submit it for review. Upon submitting as seen in the image it will be put up for review by an admin and once it is approved it will appear as a functional comment that users can edit or delete if they are the commenter.
 - Finally the Footer, which is present across all webpages, which features multiple social media links and a copyright mark.
+
+### About Page
+
+- The about page consists of a profile image of the creator of the website alongside a text box that tells the user a bit about the site and why it was created.
+- Beneath that is the collaborate section. This is where users can fill out the form to then have the admin of the site review the applications and potentially work for the site. The form has to be filled out entirely or it will not send.
