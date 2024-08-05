@@ -33,3 +33,8 @@ For the safety of the users, when a comment is submitted it has to be reviewed b
 ### Post detail
 ![responsive-image](static/images/post-detail-1.png)
 ![responsive-image](static/images/post-detail-2.png)
+
+- As can be seen in the post detail section of the website the user image and title is brought across and displayed differently to the main page. It keeps the main details of the User, the image, the title and the time and date it was created. Below that you then have the main extract of the article written by authorised users.
+- Below this the like and dislike button are located. Both Like and Dislike buttons work in tandem, so users can not like and also dislike as the code checks for a user input already and if its there it wil remove it or replace it depending on what the user wants to do. Next to that is the counter which clearly indicates how many likes or dislikes the post has. All the likes and dislikes are independant to each post this was achieved using the primary key.
+- Next is the comment section. Same again the counter keeps track of how many comments a post has but will only count them once they have been approved. The field on the right allows for users to type their comment and submit it for review. Upon submitting as seen in the image it will be put up for review by an admin and once it is approved it will appear as a functional comment that users can edit or delete if they are the commenter.
+- Finally the Footer, which is present across all webpages, which features multiple social media links and a copyright mark.
