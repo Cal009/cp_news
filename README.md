@@ -68,3 +68,13 @@ For the safety of the users, when a comment is submitted it has to be reviewed b
 ![responsive-image](static/images/comment-test.png)
 
 - Along side the comments I also tested the like and dislike button functionality. I wanted to make sure that the buttons could not both be pressed at the same time. This was achieved and if the user wants to remove their decision they can press the button again, or if they choose a different button it will remove their previous choice. This was a necessary addition to the feature in order to maintain a good user experience.
+
+### Authentication Testing
+
+![responsive-image](static/images/not-logged-in.png)
+
+- A key part to my website was making sure that users could not leave comments or likes on posts without being logged in. This was achieved and can be seen hiding both comments and likes giving the user a clear instruction to log in.
+
+### Form Testing
+
+- All forms were tested for any issues in their fields. Every form on the website functions as it should and does not allow for users to leave fields blank unless stated. 
