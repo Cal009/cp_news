@@ -78,3 +78,15 @@ For the safety of the users, when a comment is submitted it has to be reviewed b
 ### Form Testing
 
 - All forms were tested for any issues in their fields. Every form on the website functions as it should and does not allow for users to leave fields blank unless stated. 
+
+## Credits
+
+- During my development, I used the template from the Code Institute I think before I blog walkthrough. This was used to get the basis of the website and was then tweaked to fit my own needs. An additional model of likes and dislikes was then added in line with the learning outcomes.
+- The like and dislike models were created with the assistance of "codemy" on youtube. 
+
+## Deployment
+
+- The site was deployed to GitHub pages. The steps to deploy are as follows: 
+  - In the [GitHub repository](https://github.com/Cal009/cp_news), navigate to the Settings tab 
+  - From the source section drop-down menu, select the **Main** Branch, then click "Save".
+  - The page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
