@@ -171,8 +171,39 @@ body {
 
 #like-button {
     background-color: #E84610;
+    margin: 10px;
+}
+
+#dislike-button {
+    background-color: #E84610;
+    margin: 10px;
 }
 
 #submitButton {
+    background-color: #E84610;
+}
+
+#like-dislike {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#msg {
+    background-color: rgba(111, 255, 111, 0.674);
+}
+
+#signout {
+    background-color: #E84610;
+}
+
+#about-submit {
+    background-color: #E84610;
+}
+
+#login {
+    background-color: #E84610;
+}
+
+#signup {
     background-color: #E84610;
 }
