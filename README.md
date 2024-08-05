@@ -41,5 +41,30 @@ For the safety of the users, when a comment is submitted it has to be reviewed b
 
 ### About Page
 
+![responsive-image](static/images/about-1.png)
+![responsive-image](static/images/collaborate.png)
+
 - The about page consists of a profile image of the creator of the website alongside a text box that tells the user a bit about the site and why it was created.
 - Beneath that is the collaborate section. This is where users can fill out the form to then have the admin of the site review the applications and potentially work for the site. The form has to be filled out entirely or it will not send.
+
+### Sign in & Sign up
+
+![responsive-image](static/images/sign-up.png)
+![responsive-image](static/images/sign-in.png)
+
+- The sign in and sign up section is only available to users when they are not alredy signed in. Both are visible until the user signs in then they are hidden from the webpage. Both forms require all fields to be filled in to work and provide feedback to users if not done correctly.
+
+
+## Manual Testing
+
+#### Comment Test
+
+![responsive-image](static/images/comment-test.png)
+
+- I tested the comment section by first entering a comment. This was then correctly submitted to the comments view page. It then went into the awaiting aproval stage which is then approved by the admin. The comment count then correctly adds up the comments and displays the comment number. The edit functionality of the comments works as intended too, allowing only the commenter to edit their own comment and also delete their own comment. On top of that it is not possible to submit an empty comment.
+
+#### Like Test
+
+![responsive-image](static/images/comment-test.png)
+
+- Along side the comments I also tested the like and dislike button functionality. I wanted to make sure that the buttons could not both be pressed at the same time. This was achieved and if the user wants to remove their decision they can press the button again, or if they choose a different button it will remove their previous choice. This was a necessary addition to the feature in order to maintain a good user experience.
