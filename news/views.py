@@ -6,6 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post, Comment
 from .forms import CommentForm
 
+
 class LikeView(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):
         post = get_object_or_404(Post, id=pk)
@@ -19,7 +20,8 @@ class LikeView(LoginRequiredMixin, View):
             post.likes.add(user)  # Add like
 
         return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
-    
+
+
 class DisLikeView(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):
         post = get_object_or_404(Post, id=pk)
@@ -33,6 +35,7 @@ class DisLikeView(LoginRequiredMixin, View):
             post.dislikes.add(user)  # Add dislike
 
         return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
+
 
 # Create your views here.
 class PostList(generic.ListView):
@@ -64,7 +67,7 @@ def post_detail(request, slug):
     if request.method == "POST":
         if not request.user.is_authenticated:
             return redirect("/login/")
-        
+
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
@@ -73,9 +76,9 @@ def post_detail(request, slug):
             comment.post = post
             comment.save()
             messages.add_message(
-            request, messages.SUCCESS,
-            'Comment submitted and awaiting approval'
-        )
+                request, messages.SUCCESS,
+                'Comment submitted and awaiting approval'
+                )
 
     total_likes = post.total_likes()
 
@@ -90,6 +93,7 @@ def post_detail(request, slug):
             "total_likes": total_likes,
         }
     )
+
 
 def comment_edit(request, slug, comment_id):
     """
@@ -109,9 +113,11 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(
+                request, messages.ERROR, 'Error updating comment!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
 
 def comment_delete(request, slug, comment_id):
     """
@@ -125,6 +131,7 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(
+            request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
