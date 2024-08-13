@@ -42,8 +42,7 @@
                 <br /><br />
                 <form action="{% url 'like_post' post.pk %}" method="POST" style="display: inline;">
                     {% csrf_token %}
-                    <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary" id="like-button"
-                        {% if user in post.liked_by.all %}disabled{% endif %}>
+                    <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary" id="like-button" {% if user in post.liked_by.all %}disabled{% endif %}>
                         Like
                     </button>
                     -
@@ -52,8 +51,7 @@
 
                 <form action="{% url 'dislike_post' post.pk %}" method="POST" style="display: inline;">
                     {% csrf_token %}
-                    <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary"
-                        id="dislike-button" {% if user in post.disliked_by.all %}disabled{% endif %}>
+                    <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary" id="dislike-button" {% if user in post.disliked_by.all %}disabled{% endif %}>
                         Dislike
                     </button>
                     -
