@@ -6,12 +6,12 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 # Create your models here.
 
+
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
-    User, on_delete=models.CASCADE, related_name="blog_posts"
-    )
+        User, on_delete=models.CASCADE, related_name="blog_posts")
     featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -20,14 +20,19 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     likes = models.ManyToManyField(User, related_name="news_post")
     dislikes = models.ManyToManyField(User, related_name="news_post_dislikes")
+
     def total_likes(self):
         return self.likes.count()
+
     def total_dislikes(self):
         return self.dislikes.count()
+
     class Meta:
         ordering = ["-created_on"]
+
     def __str__(self):
         return f"{self.title} | published by {self.author}"
+
 
 class Comment(models.Model):
     post = models.ForeignKey(
@@ -37,6 +42,7 @@ class Comment(models.Model):
     body = models.TextField()
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
+
     class Meta:
         ordering = ["created_on"]
 
