@@ -9,5 +9,6 @@ urlpatterns = [
      path('<slug:slug>/delete_comment/<int:comment_id>',
           views.comment_delete, name='comment_delete'),
      path('like/<int:pk>', views.LikeView.as_view(), name='like_post'),
-     path('dislike/<int:pk>', views.DisLikeView.as_view(), name='dislike_post'),
+     path(
+         'dislike/<int:pk>', views.DisLikeView.as_view(), name='dislike_post'),
 ]
