@@ -8,6 +8,21 @@ from .forms import CommentForm
 
 
 class LikeView(LoginRequiredMixin, View):
+    """
+    A view to allow users to like a post
+
+    Gets the information of the post and the user.
+
+    If user has already liked then like will be removed if clicked again
+
+    If not then like will be added to like count
+
+    User will be redirected to the same post for good UX
+
+    For both likes and dislikes they work in tandem making it so users cannot 
+    click both buttons, if one is already cliked it will remove the previous 
+    choice and apply it to the new one
+    """
     def post(self, request, pk, *args, **kwargs):
         post = get_object_or_404(Post, id=pk)
         user = request.user
@@ -23,6 +38,21 @@ class LikeView(LoginRequiredMixin, View):
 
 
 class DisLikeView(LoginRequiredMixin, View):
+    """
+    A view to allow users to dislike a post
+
+    Gets the information of the post and the user.
+
+    If user has already disliked then dislike will be removed if clicked again
+
+    If not then dislike will be added to dislike count
+
+    User will be redirected to the same post for good UX
+
+    For both likes and dislikes they work in tandem making it so users cannot 
+    click both buttons, if one is already cliked it will remove the previous 
+    choice and apply it to the new one
+    """
     def post(self, request, pk, *args, **kwargs):
         post = get_object_or_404(Post, id=pk)
         user = request.user
@@ -95,11 +125,19 @@ def post_detail(request, slug):
     )
 
 
-def comment_edit(request, slug, comment_id):
+def comment_edit(LoginRequiredMixin, request, slug, comment_id):
     """
-    view to edit comments
+    View to edit comments
+
+    Gives the ability for a logged in user to leave a comment
+
+    Will not show if the user is not logged in
+
+    Error messages in place incase comment isnt correctly updated
     """
     if request.method == "POST":
+        if not request.user.is_authenticated:
+            return redirect("/login/")
 
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -119,9 +157,15 @@ def comment_edit(request, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-def comment_delete(request, slug, comment_id):
+def comment_delete(LoginRequiredMixin, request, slug, comment_id):
     """
     view to delete comment
+
+    Gives ability for creator of the comment to delete it
+
+    Does not allow other users to delete other comments
+
+    Provides feedback to user for good UX
     """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
