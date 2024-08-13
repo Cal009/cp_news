@@ -1,11 +1,12 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post, Comment
 from .forms import CommentForm
 
-class LikeView(View):
+class LikeView(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):
         post = get_object_or_404(Post, id=pk)
         user = request.user
@@ -19,7 +20,7 @@ class LikeView(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
     
-class DisLikeView(View):
+class DisLikeView(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):
         post = get_object_or_404(Post, id=pk)
         user = request.user
@@ -61,7 +62,11 @@ def post_detail(request, slug):
     comment_form = CommentForm()
 
     if request.method == "POST":
+        if not request.user.is_authenticated:
+            return redirect("/login/")
+        
         comment_form = CommentForm(data=request.POST)
+
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
