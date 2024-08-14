@@ -55,6 +55,7 @@ body {
     color: white;
     margin: 4px;
     text-transform: uppercase;
+    background-color: #E84610;
 }
 
 .masthead {
@@ -113,7 +114,7 @@ body {
 
 .btn-signup,
 .btn-edit {
-    background-color: #188181;
+    background-color: #E84610;
     color: #fff;
 }
 
@@ -168,6 +169,41 @@ body {
     color: wheat;
 }
 
-#about-background {
-    background-color: #e846108c;
+#like-button {
+    background-color: #E84610;
+    margin: 10px;
+}
+
+#dislike-button {
+    background-color: #E84610;
+    margin: 10px;
+}
+
+#submitButton {
+    background-color: #E84610;
+}
+
+#like-dislike {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#msg {
+    background-color: rgba(111, 255, 111, 0.674);
+}
+
+#signout {
+    background-color: #E84610;
+}
+
+#about-submit {
+    background-color: #E84610;
+}
+
+#login {
+    background-color: #E84610;
+}
+
+#signup {
+    background-color: #E84610;
 }
