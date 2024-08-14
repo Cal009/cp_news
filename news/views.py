@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
 from .forms import CommentForm
 
@@ -96,7 +97,7 @@ def post_detail(request, slug):
 
     if request.method == "POST":
         if not request.user.is_authenticated:
-            return redirect("/login/")
+            return redirect(reverse('account_login'))
 
         comment_form = CommentForm(data=request.POST)
 
@@ -125,7 +126,8 @@ def post_detail(request, slug):
     )
 
 
-def comment_edit(LoginRequiredMixin, request, slug, comment_id):
+@login_required
+def comment_edit(request, slug, comment_id):
     """
     View to edit comments
 
@@ -157,7 +159,8 @@ def comment_edit(LoginRequiredMixin, request, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-def comment_delete(LoginRequiredMixin, request, slug, comment_id):
+@login_required
+def comment_delete(request, slug, comment_id):
     """
     view to delete comment
 
