@@ -8,3 +8,9 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('', include("news.urls"), name='news-urls'),
 ]
+
+
+handler404 = 'codestar.views.handler404'
+handler500 = 'codestar.views.handler500'
+handler403 = 'codestar.views.handler403'
+handler405 = 'codestar.views.handler405'
