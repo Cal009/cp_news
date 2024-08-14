@@ -94,6 +94,20 @@ For the safety of the users, when a comment is submitted it has to be reviewed b
 - During my development, I used the template from the Code Institute I think before I blog walkthrough. This was used to get the basis of the website and was then tweaked to fit my own needs. An additional model of likes and dislikes was then added in line with the learning outcomes.
 - The like and dislike models were created with the assistance of "codemy" on youtube. 
 
+#### Unsplash Photos
+
+- Scrambled Eggs - by Imad 786
+- Banana - by John Vid
+- Aeroplane - by Marten Bjork
+- Emu - by Katherine McAdoo
+- Iceland - by Alex Talmon
+- Bakery - by Andy Li
+- Hotel - by felipepelaquim
+- Meteor - by Clay Banks
+- Barafundle Bay - by Ian Cylkowski
+- Thermometer - by Matteo Fusco
+- Portrait - by Marvin Meyer
+
 ## Deployment
 
 - The site was deployed to GitHub pages. The steps to deploy are as follows: 
